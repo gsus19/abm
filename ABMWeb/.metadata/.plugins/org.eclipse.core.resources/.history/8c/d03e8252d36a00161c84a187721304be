@@ -1,0 +1,55 @@
+package com.ibm.gsus.webapp.connections;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import com.cloudant.client.api.CloudantClient;
+import com.cloudant.client.api.Database;
+
+
+
+public class Dbconn {
+	
+	private static CloudantClient cloudantClient;
+	private static Dbconn cDbSingleton;
+	private static Database db;
+	private static final String dbName = "personas";
+	private static final String dbUser = "toguirstorderingtoislach";
+	private static final String dbPassword = "b711238283c03c8736c20a54a749ce3da5d7c45f";
+	private static final String dbHost = "https://jesusjrod19.cloudant.com";
+	
+	public Dbconn(){};
+	
+	public static Dbconn getInstance(){
+		
+		if (cDbSingleton == null){
+			cDbSingleton = new Dbconn();
+		}
+		return cDbSingleton;
+		
+	}
+	
+	public Database testDatabase(){
+		if(cloudantClient==null){
+		try {
+			cloudantClient =  new CloudantClient(dbHost,dbUser,dbPassword);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		}
+		if(db==null)
+		{	
+			try {
+				db = cloudantClient.database(dbName,true);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+			
+		}
+		return db;
+	}
+}
+	   
+
+

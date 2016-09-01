@@ -1,0 +1,66 @@
+package com.ibm.gsus.webabm.entities;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Persons {
+	
+	//@JsonProperty("Id")
+	private String _Id;
+	//@JsonProperty("nombre")
+	private String nombre;
+	//@JsonProperty("apellido")
+	private String apellido;
+	//@JsonProperty("dni")
+	private Integer dni;
+	
+	public Persons() {
+		
+		
+	}
+	
+
+	public Persons(long id, String nombre, String apellido, Integer dni) {
+		Id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.dni = dni;
+	}
+
+
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public Integer getDni() {
+		return dni;
+	}
+
+	public void setDni(Integer dni) {
+		this.dni = dni;
+	}
+	
+	
+	
+	
+
+}
